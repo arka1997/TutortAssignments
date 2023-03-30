@@ -17,9 +17,37 @@ public class HoriZontalDistanceWithNodes {
                 right = null;
             }
         }
+    static class Pair {
+        int hd;
+        Node root;
+        Pair(int hd,Node root){
+            this.hd = hd;
+            this.root = root;
+        }
+    }
         public static void main(String[] args) {
 //          root = new Node(2);
             int level = 0 ;
+            Queue<Pair> q = new ArrayDeque<>();
+            Map<Integer,Integer> map = new TreeMap<>();//TreeMap so that we get our result in sorted manner
+
+            q.add(new Pair(0,root));
+            while(!q.isEmpty()){
+                Pair curr  = q.poll();
+                if(!map.containsKey(curr.hd)){
+                    map.put(curr.hd, curr.root.val);
+                }
+                if(curr.root.left != null){
+                    q.add(new Pair(curr.hd-1,curr.root.left));
+                }
+                if(curr.root.right != null){
+                    q.add(new Pair(curr.hd+1,curr.root.right));
+                }
+            }
+            ArrayList<Integer> ans = new ArrayList<>();
+            for(Map.Entry<Integer,Integer> i:map.entrySet()){
+                System.out.println(i.getValue());
+            }
             List<Integer> l1 = new LinkedList<Integer>();
             List<List<Integer>> l2 = new LinkedList<List<Integer>>();
             // return rightSideView2(root,level,l1);
@@ -30,6 +58,7 @@ public class HoriZontalDistanceWithNodes {
             l2.add(l);
             System.out.println(l);
         }
+
 //        For printing trees----->
 //            for(int l:integerListHashMap.keySet()){
 //                System.out.println(l);

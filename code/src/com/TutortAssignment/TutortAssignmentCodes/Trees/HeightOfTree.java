@@ -1,6 +1,8 @@
 package com.TutortAssignment.TutortAssignmentCodes.Trees;
 
+import javax.swing.tree.TreeNode;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class HeightOfTree {
@@ -9,15 +11,41 @@ public class HeightOfTree {
         Nodes root = null;
         Tree tree = new Tree();
 //        Initialize the first Node, here root.
-        String s = "1,2,3,4,N,5,N,6";
+        String s = "3,9,20,N,N,15,7";
+//        call the "insertNode()" method for inserting all Nodes
         root = tree.insertNode(s);
 
 //        System.out.println("The height of binary tree is : "
 //                + tree.findHeight(root,0));
         System.out.println("The deepest Node in binary tree is : "
-                + HeightOfTree.deepestNode(root,0));
+                + HeightOfTree.levelOrder(root));
     }
 
+    public static List<List<Integer>> levelOrder(Nodes root) {
+        Queue<Nodes> q = new LinkedList<>();
+        q.add(root);
+        List<Integer> data;
+        List<List<Integer>> storeArr = new LinkedList<>();
+        if(root==null){
+            return storeArr;
+        }
+        while(!q.isEmpty()){
+            int size = q.size();
+            data = new LinkedList<>();
+            for(int i = 0;i<size;i++){
+                Nodes temp = q.remove();
+                if(temp.left!=null){
+                    q.add(temp.left);
+                }
+                if(temp.right!=null){
+                    q.add(temp.right);
+                }
+                data.add(temp.val);
+            }
+            storeArr.add(data);
+        }
+        return storeArr;
+    }
     static int maxLevel = -1;
     static int resAtMaxLvl = -1;
     private static int deepestNode(Nodes root, int level) {

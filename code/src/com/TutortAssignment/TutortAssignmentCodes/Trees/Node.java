@@ -7,7 +7,7 @@ class Nodes {
     Nodes left;
     Nodes right;
     int val;
-    Nodes(int vals){
+    public Nodes(int vals){
         val = vals;
         left=null;
         right = null;
@@ -26,14 +26,14 @@ class Tree {
         while(i<str.length){
             Nodes temp = q.remove();
             String currVal = str[i];
-            if(!currVal.equals("N")){
+            if(!currVal.equals("N")&&!currVal.equals("null")){
 //                Create left child of current Node
                 temp.left = new Nodes(Integer.parseInt(str[i]));
                 q.add(temp.left);
             }
             if(++i>=str.length){break; }
-            currVal = str[++i];
-            if(!currVal.equals("N")){
+            currVal = str[i];
+            if(!currVal.equals("N")&&!currVal.equals("null")){
 //                Create right child of current Node
                 temp.right = new Nodes(Integer.parseInt(str[i]));
                 q.add(temp.right);

@@ -23,5 +23,8 @@ public class HashingCollision {
         System.out.println(tmps.get(m1));
         System.out.println(tmps.get(m2));
         System.out.println(tmps.get(m3));
+//        tmps.remove(m3,"Nepals");
+        String remove = tmps.remove(m2);
+        System.out.println(remove+" gg "+tmps.get(m2));
     }
 }

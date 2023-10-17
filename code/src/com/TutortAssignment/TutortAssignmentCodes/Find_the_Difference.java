@@ -43,7 +43,11 @@ public class Find_the_Difference {
         }
         // ade
         // aaed
-//         Now again traverse through the String t. Our primary focus will be reducing the frequency of each character to zero by deducting the "Value" Part with -1. Now ther are two if blocks, a)one for deducting the frequency b) 2nd to check if the key is prtesent in HashMap && the key ha a value zero or not OR if the current key is not present in Hashmap(In both case we return that extra character)
+//         Now again traverse through the String t. Our primary focus will be reducing the frequency of each character
+//         to zero by deducting the "Value" Part with -1. Now ther are two if blocks,
+    //         a) one for deducting the frequency
+    //         b) 2nd to check if the key is prtesent in HashMap && the key ha a value zero or not OR if the current key
+    //            is not present in Hashmap(In both case we return that extra character)
         p1 = 0;
         while(p1<t.length()){
             char pointToChar = t.charAt(p1);

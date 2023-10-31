@@ -1,6 +1,6 @@
-package com.OracleHealth.CompositePattern.Classes;
+package com.OracleHealth.composite_pattern.Classes;
 
-import com.OracleHealth.CompositePattern.Interfaces.Authentication;
+import com.OracleHealth.composite_pattern.Interfaces.Authentication;
 
 public class Security  implements Authentication {
     protected final String name = "Debanjan";

@@ -1,8 +1,8 @@
-package com.OracleHealth.CompositePattern.Classes;
+package com.OracleHealth.composite_pattern.Classes;
 
-import com.OracleHealth.CompositePattern.Interfaces.Authentication;
-import com.OracleHealth.CompositePattern.Interfaces.Deposition;
-import com.OracleHealth.CompositePattern.Interfaces.Withdrawing;
+import com.OracleHealth.composite_pattern.Interfaces.Authentication;
+import com.OracleHealth.composite_pattern.Interfaces.Deposition;
+import com.OracleHealth.composite_pattern.Interfaces.Withdrawing;
 
 public class Bank implements Authentication, Deposition, Withdrawing {
     private Transactions a;
